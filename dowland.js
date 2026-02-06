@@ -15,3 +15,21 @@ function uploadCompleted() {
     }, 2000); // Имитация задержки обработки файла
 }
 
+function startUpload(callback) {
+    console.log("Начало загрузки файла...");
+
+    let progress = 0;
+    const intervalId = setInterval(() => {
+        // ИМитация процесса загрузки
+        progress += Math.floor(Math.random() * 10) + 5; // Увеличиваем прогресс на случайное значение от 5 до 15
+        console.log(`Прогресс ${progress}%`);
+
+        if (progress >= 100) {
+            clearInterval(intervalId); // Останавливаем интерввал
+            console.log("Загрузка файла завершена!");
+            if (callback) {
+                callback(); // Вызываем callback после завершения
+            }
+        }
+    }, 2000); // Обновляем прогресс каждые 2 секунды
+}
