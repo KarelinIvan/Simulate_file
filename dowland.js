@@ -33,3 +33,6 @@ function startUpload(callback) {
         }
     }, 2000); // Обновляем прогресс каждые 2 секунды
 }
+
+// Запуск функции с отдельной функцией обратного вызовва
+startUpload(uploadCompleted);
