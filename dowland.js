@@ -21,7 +21,8 @@ function startUpload(callback) {
     let progress = 0;
     const intervalId = setInterval(() => {
         // ИМитация процесса загрузки
-        progress += Math.floor(Math.random() * 10) + 5; // Увеличиваем прогресс на случайное значение от 5 до 15
+        const increment = Math.floor(Math.random() * 10) + 5; // Увеличиваем прогресс на случайное значение от 5 до 15
+        progress = Math.min(100, progress + increment); // Ограничиваем прогресс не более 100%
         console.log(`Прогресс ${progress}%`);
 
         if (progress >= 100) {
